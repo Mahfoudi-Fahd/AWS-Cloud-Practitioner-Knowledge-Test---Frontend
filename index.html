@@ -6,31 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 
     <title>Quizizy</title>
 </head>
 <body>
-    
+
     <!-- navbar -->
     <section class="navigation">
-        <div class="nav-container">
+        <div class="container">
             <div class="brand">
-                <a href="#!"><i class="fa fa-amazon"></i>QUIZIZY</a>
+                <!-- <a href="index.html"><i class="fa fa-amazon"></i>QUIZIZY</a> -->
+                <img src="assets/img/amazon.png" style="height: 5rem;" alt="amazon">
             </div>
             <nav>
                 <div class="nav-mobile">
                     <a id="nav-toggle" href="#!"><span></span></a>
                 </div>
                 <ul class="nav-list">
-                    <li><a href="#!">Home</a></li>
-                    <li><a href="#!">Questions</a></li>
-                    <li><a href="#!">Results</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/questions.html">Questions</a></li>
+                    <li><a href="pages/results.html">Results</a></li>
                     <li><a href="#!">About Us</a></li>
                     <li><a href="#!">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </section>
+    <main>
+        <div id="note" class="container col-md-6 shadow p-3 mb-5 bg-white rounded">
+             <h1>AWS Cloud Practitioner Knowledge Test</h1>
+             <h6>Try to answer the following questions in given time limit<br/>
+             Keep in mind that incorrect answer will penalize time/score
+             </h6>
+             <button type="button" id="start" class="btn">Start Quiz</button>
+        </div>
+        <div id="div1" class="container col-md-8 shadow p-3 mb-5 bg-white rounded">
+            <h1 id="ques">Question</h1>
+            <button type="button" id="op1" class="btn col-md-12" onclick="validate(id);"></button>
+            <button type="button" id="op2" class="btn col-md-12" onclick="validate(id);"></button>
+            <button type="button" id="op3" class="btn col-md-12" onclick="validate(id);"></button>
+            <button type="button" id="op4" class="btn col-md-12" onclick="validate(id);"></button>
+        </div>
+        <script src="assets/js/main.js"></script>
+        <script>
+            var i=0;
+            var score=0;
+            const {questionText:q1} = questions[i];
+            const [op1,op2,op3,op4] = questions[i].options;
+            document.getElementById("ques").innerHTML=q1;
+            document.getElementById("op1").innerHTML=op1;
+            document.getElementById("op2").innerHTML=op2;
+            document.getElementById("op3").innerHTML=op3;
+            document.getElementById("op4").innerHTML=op4;
+            document.getElementById("timer").innerHTML="59";
+            
+            </script>
+            <script>
+                $(function(){
+                    $("#div1").hide();
+                    $("#start").click(function(){
+                        $("#div1").show();
+                        $("#note").hide();
+                    })
+                    
+                })
+            </script>
+ 
     
+     </main>
 </body>
 </html>

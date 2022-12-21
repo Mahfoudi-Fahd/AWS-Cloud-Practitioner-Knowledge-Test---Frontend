@@ -1,8 +1,7 @@
 const questions = [
     {
       questionText: "Why is AWS more economical than traditional data centers for applications with varying compute workloads?",
-      options:
-       [
+      options: [
             "1. Amazon EC2 costs are billed on a monthly basis",
             "2.Users retain full administrative access to their Amazon EC2 instances.", 
             "3. Amazon EC2 instances can be launched on demand when needed", 

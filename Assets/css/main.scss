@@ -9,7 +9,7 @@ $link-hover-color: #f8b500;
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 body{
-  font-family: 'Poppins'
+  font-family: 'Poppins';
 }
 
 .navigation {
@@ -193,6 +193,8 @@ nav {
     display: block !important;
   }
 }
+
+
 .btn{
     &:hover {
         background-color:$link-hover-color!important;
@@ -214,6 +216,14 @@ nav {
     }
  }
 
- #note{
+#note{
  margin: 10rem;
-            }
+}
+
+#res{
+  margin-left:500px;
+  font-size: large;
+  font-weight: bold;
+}
+
+

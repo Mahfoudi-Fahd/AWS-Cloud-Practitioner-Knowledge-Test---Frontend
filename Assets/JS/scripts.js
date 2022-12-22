@@ -25,6 +25,8 @@ nextBtnFirst.addEventListener("click", function(event){
   progressCheck[current - 1].classList.add("active");
   progressText[current - 1].classList.add("active");
   current += 1;
+  progressText[current - 1].classList.add("active");
+
 });
 nextBtnSec.addEventListener("click", function(event){
   event.preventDefault();
@@ -35,6 +37,7 @@ nextBtnSec.addEventListener("click", function(event){
   progressCheck[current - 1].classList.add("active");
   progressText[current - 1].classList.add("active");
   current += 1;
+  progressText[current - 1].classList.add("active");
 });
 
 submitBtn.addEventListener("click", function(){

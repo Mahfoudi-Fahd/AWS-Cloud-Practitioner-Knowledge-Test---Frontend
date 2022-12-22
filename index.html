@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -29,9 +28,8 @@
                     <a id="nav-toggle" href="#!"><span></span></a>
                 </div>
                 <ul class="nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/questions.html">Questions</a></li>
-                    <li><a href="pages/results.html">Results</a></li>
+                    <li><a href="pages/home.html">Home</a></li>
+                    <li><a href="index.html">Quiz</a></li>
                     <li><a href="#!">About Us</a></li>
                     <li><a href="#!">Contact</a></li>
                 </ul>
@@ -41,6 +39,7 @@
 
     
         <div class="progress-bar">
+
             <div class="step">
                 <p>Start</p>
                 <div class="bullet">
@@ -48,6 +47,7 @@
                 </div>
                 <div class="check fas fa-check"></div>
             </div>
+
             <div class="step">
                 <p>Questions</p>
                 <div class="bullet">
@@ -88,7 +88,7 @@
         <div id="res"></div>
             <div id="page" class="res container col-md-6 shadow p-3 mb-5 bg-white rounded">
                 <h1>All Done !!!</h1>
-                <h6>Your score is <span id="score"></span>/50</h6><br/>
+                <h6>Your score is <span id="score"></span>/100</h6><br/>
                 <div class="col-md-4">
                     <label for="init">Enter your initials : </label>
                     <input id="init" class="form-control" type="text">
@@ -145,6 +145,8 @@
                 } ,500 )
             }
         }
+
+        
         function restart(){
             location.reload();
         }

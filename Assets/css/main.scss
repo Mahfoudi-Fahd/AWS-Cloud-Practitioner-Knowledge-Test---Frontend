@@ -1,9 +1,10 @@
 $content-width: 1000px;
-$breakpoint: 640px;
+$breakpoint: 770px;
 $nav-height: 70px;
 $nav-background: #fff;
 $nav-font-color: #0c0c0c;
 $link-hover-color: #f8b500;
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
@@ -36,8 +37,7 @@ body{
   font-weight: bolder;
   
 
-  a,
-  a:visited {
+  a, a:visited {
     color: $nav-font-color;
     text-decoration: none;
   }
@@ -78,7 +78,8 @@ nav {
           padding-left: 4px;
           
         }
-      } // Dropdown list
+      } 
+      // Dropdown list
       ul li {
         min-width: 190px;
         a {
@@ -224,3 +225,104 @@ nav {
 }
 
 
+
+.progress-bar{
+  display: flex;
+  flex-direction: row !important;
+  margin: 40px 0;
+  user-select: none;
+
+    .step{
+      text-align: center;
+      width: 11rem;
+      position: relative;
+
+      .bullet
+        {
+            height: 28px;
+            width: 28px;
+            border: 2px solid #000;
+            display: inline-block;
+            border-radius: 50%;
+            position: relative;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 25px;
+
+          &.active{
+              border-color: $link-hover-color;
+              background:$link-hover-color;
+              span{
+              display: none;
+              }
+              &:after{
+                background: $link-hover-color;
+                transform: scaleX(0);
+                transform-origin: left;
+                animation: animate 0.3s linear forwards;
+              }
+            }
+
+          &:before,&::after{
+              position: absolute;
+              content: '';
+              bottom: 11px;
+              right: -150px;
+              height: 3px;
+              width: 150px;
+              background: #262626;
+              @media (max-width: 600px) {
+                width: 0;    
+                
+              }
+              
+            }
+
+            span{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+              }
+      }
+      &:last-child{
+        .bullet{
+          &:before,&::after{
+            display: none;
+          }
+        }
+      }
+
+      .check{
+        position: absolute;
+        left: 50%;
+        top: 70%;
+        font-size: 15px;
+        transform: translate(-50%, -50%);
+        display: none;
+        &.active{
+          display: block;
+          color: #fff;
+        }
+      }
+    }
+
+    p{
+      font-weight: 500;
+      font-size: 18px;
+      color: #000;
+      margin-bottom: 8px;
+      &.active{
+        color: $link-hover-color;
+        transition: 0.2s linear;
+      }
+    }
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.next{
+  display: none;
+}

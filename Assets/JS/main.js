@@ -11,36 +11,64 @@ const questions = [
     },
     
     {
-      questionText: "Arrays in JavaScript can be used to store ______.",
+      questionText: "Which AWS service would simplify the migration of a database to AWS?",
       options: [
-        "1. numbers and strings",
-        "2. other arrays",
-        "3. booleans",
-        "4. all of the above",
+        "1. AWS Storage Gateways",
+        "2. AWS Database Migration Service (AWS DMS)",
+        "3. Amazon EC2",
+        "4. Amazon AppStream 2.0",
       ],
-      answer: "4. all of the above",
+      answer: "2. AWS Database Migration Service (AWS DMS)",
+    },
+    {
+      questionText: "Which AWS offering enables users to find, buy, and immediately start using software solutions in their AWS environment?",
+      options: ["1. AWS Config", "2. AWS OpsWorks", "3. AWS SDK", "4. AWS Marketplace"],
+      answer: "4. AWS Marketplace",
     },
     {
       questionText:
-        "String values must be enclosed within _____ when being assigned to variables.",
-      options: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
-      answer: "3. quotes",
-    },
-    {
-      questionText:
-        "A very useful tool used during development and debugging for printing content to the debugger is:",
+        "Which AWS networking service enables a company to create a virtual network within AWS?",
       options: [
-        "1. JavaScript",
-        "2. terminal/bash",
-        "3. for loops",
-        "4. console.log",
+        "1. AWS Config",
+        "2. Amazon Route 53",
+        "3. AWS Direct Connect",
+        "4. Amazon Virtual Private Cloud (Amazon VPC)",
       ],
-      answer: "4. console.log",
+      answer: "4. Amazon Virtual Private Cloud (Amazon VPC)",
     },
     {
       questionText:
-        "Which of the following is a statement that can be used to terminate a loop, switch or label statement?",
-      options: ["1. break", "2. stop", "3. halt", "4. exit"],
-      answer: "1. break",
+        "Which of the following is an AWS responsibility under the AWS shared responsibility model?",
+      options: ["1. Configuring third-party applications", "2. Maintaining physical hardware", "3. Securing application access and data", "4. Managing guest operating systems"],
+      answer: "2. Maintaining physical hardware",
     },
-  ];
+
+
+
+    {
+      questionText: "Which component of the AWS global infrastructure does Amazon CloudFront use to ensure low-latency delivery?",
+      options: ["1. AWS Regions", "2. Edge locations", "3. Availability Zones","4. Virtual Private Cloud (VPC)"],
+      answer: "2. Edge locations",
+    },
+    {
+      questionText: "How would a system administrator add an additional layer of login security to a user's AWS Management Console?",
+      options: [ "1. Use Amazon Cloud Directory","2. Audit AWS Identity and Access Management (IAM) roles","3. Enable multi-factor authentication", "4. Enable AWS CloudTrail"],
+      answer: "3. Enable multi-factor authentication",
+    },
+    {
+      questionText: "Which service can identify the user that made the API call when an Amazon EC2 instance is terminated?",
+      options: [ "1. AWS Trusted Advisor", "2. AWS CloudTrail", "3. AWS X-Ray", "4. AWS Identity and Access Management (AWS IAM)"],
+      answer: "2. AWS CloudTrail",
+    },
+    {
+      questionText: "Which service would be used to send alerts based on Amazon CloudWatch alarms?",
+      options: ["1. Amazon Simple Notification Service (Amazon SNS)", "2. AWS CloudTrail", "3. AWS Trusted Advisor", "4. Amazon Route 53"],
+      answer: "1. Amazon Simple Notification Service (Amazon SNS)",
+    },
+    {
+      questionText: "Where can a user find information about prohibited actions on the AWS infrastructure?",
+      options: ["1. AWS Trusted Advisor", "2. AWS Identity and Access Management (IAM)", "3. AWS Billing Console", "4. AWS Acceptable Use Policy"],
+      answer: "4. AWS Acceptable Use Policy",
+    },
+];    
+ 

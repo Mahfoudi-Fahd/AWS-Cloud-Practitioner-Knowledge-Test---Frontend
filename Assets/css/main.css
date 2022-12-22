@@ -92,7 +92,7 @@ nav ul li ul li a {
   width: 70px;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 770px) {
   #note {
     margin: 2px !important;
   }
@@ -162,7 +162,7 @@ nav ul li ul li a {
   transform: rotate(-45deg);
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 770px) {
   .nav-list {
     display: block !important;
   }
@@ -196,7 +196,99 @@ nav ul li ul li a {
   margin-left: 500px;
   font-size: large;
   font-weight: bold;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: row !important;
+  margin: 40px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.progress-bar .step {
+  text-align: center;
+  width: 11rem;
+  position: relative;
+}
+.progress-bar .step .bullet {
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active {
+  border-color: #d43f8d;
+  background: #d43f8d;
+}
+.progress-bar .step .bullet.active span {
+  display: none;
+}
+.progress-bar .step .bullet.active:after {
+  background: #d43f8d;
+  transform: scaleX(0);
+  transform-origin: left;
+  -webkit-animation: animate 0.3s linear forwards;
+          animation: animate 0.3s linear forwards;
+}
+.progress-bar .step .bullet:before, .progress-bar .step .bullet::after {
+  position: absolute;
+  content: "";
+  bottom: 11px;
+  right: -150px;
+  height: 3px;
+  width: 150px;
+  background: #262626;
+}
+.progress-bar .step .bullet span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step:last-child .bullet:before, .progress-bar .step:last-child .bullet::after {
+  display: none;
+}
+.progress-bar .step .check {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active {
+  display: block;
+  color: #fff;
+}
+.progress-bar p {
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.progress-bar p.active {
+  color: #d43f8d;
+  transition: 0.2s linear;
+}
+
+@-webkit-keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.next {
+  display: none;
 }/*# sourceMappingURL=main.css.map */
-
-
-

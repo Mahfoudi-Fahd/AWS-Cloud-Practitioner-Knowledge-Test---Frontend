@@ -26,8 +26,7 @@ body {
   margin-right: 5px;
   font-size: medium;
 }
-.brand a,
-.brand a:visited {
+.brand a, .brand a:visited {
   color: #0c0c0c;
   text-decoration: none;
 }
@@ -213,8 +212,8 @@ nav ul li ul li a {
   position: relative;
 }
 .progress-bar .step .bullet {
-  height: 25px;
-  width: 25px;
+  height: 28px;
+  width: 28px;
   border: 2px solid #000;
   display: inline-block;
   border-radius: 50%;
@@ -225,14 +224,14 @@ nav ul li ul li a {
   line-height: 25px;
 }
 .progress-bar .step .bullet.active {
-  border-color: #d43f8d;
-  background: #d43f8d;
+  border-color: #f8b500;
+  background: #f8b500;
 }
 .progress-bar .step .bullet.active span {
   display: none;
 }
 .progress-bar .step .bullet.active:after {
-  background: #d43f8d;
+  background: #f8b500;
   transform: scaleX(0);
   transform-origin: left;
   -webkit-animation: animate 0.3s linear forwards;
@@ -246,6 +245,11 @@ nav ul li ul li a {
   height: 3px;
   width: 150px;
   background: #262626;
+}
+@media (max-width: 600px) {
+  .progress-bar .step .bullet:before, .progress-bar .step .bullet::after {
+    width: 0;
+  }
 }
 .progress-bar .step .bullet span {
   position: absolute;
@@ -274,7 +278,7 @@ nav ul li ul li a {
   margin-bottom: 8px;
 }
 .progress-bar p.active {
-  color: #d43f8d;
+  color: #f8b500;
   transition: 0.2s linear;
 }
 

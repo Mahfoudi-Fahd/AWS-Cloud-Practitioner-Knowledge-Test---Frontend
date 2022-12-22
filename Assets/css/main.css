@@ -26,7 +26,8 @@ body {
   margin-right: 5px;
   font-size: medium;
 }
-.brand a, .brand a:visited {
+.brand a,
+.brand a:visited {
   color: #0c0c0c;
   text-decoration: none;
 }
@@ -192,9 +193,9 @@ nav ul li ul li a {
 }
 
 #res {
-  margin-left: 500px;
-  font-size: large;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: bolder;
+  margin-left: 45%;
 }
 
 .progress-bar {
@@ -295,4 +296,9 @@ nav ul li ul li a {
 }
 .next {
   display: none;
+}
+
+#file {
+  height: 50px;
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

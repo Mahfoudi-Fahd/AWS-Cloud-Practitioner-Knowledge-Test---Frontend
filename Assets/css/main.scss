@@ -363,8 +363,15 @@ nav {
 }
 
 #file {
+  margin-top: 50px;
 margin-left: 23%;
-  height: 50px;
+  height: 30px;
   width: 50%;
+  background: white;
+ &::-webkit-progress-value {
+
+  background: $link-hover-color;
+ }
 }
+
 

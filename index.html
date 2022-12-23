@@ -82,13 +82,12 @@
             <div id="div1" class="container col-md-8 shadow p-3 mb-5 bg-white rounded">
                 <h1 id="ques">Question</h1>
                 <div id="res"></div>
-                <button type="button" id="op1" class="btn col-md-12" onclick="validate(id);" ></button>
-                <button type="button" id="op2" class="btn col-md-12" onclick="validate(id);" ></button>
-                <button type="button" id="op3" class="btn col-md-12" onclick="validate(id);"></button>
-                <button type="button" id="op4" class="btn col-md-12" onclick="validate(id);"></button>
+                <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);" ></button>
+                <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);" ></button>
+                <button type="button" id="op3" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
+                <button type="button" id="op4" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
                 <button id="next-1"  class="next-1 next">Next</button>
-                <progress  id="file" max="100" value="0"></progress>
-                <!-- <smart-progress-bar value="25" inverted></smart-progress-bar> -->
+                <progress class="progress" id="file" max="100" value="0"></progress>
 
 
             </div>
@@ -144,6 +143,7 @@
             document.querySelector('#file').value += 10;
 
             $('#op1,#op2,#op3,#op4').attr('disabled','disabled');
+            
             const {answer:a} =questions[i];
             var ans=document.getElementById(id).innerHTML;
             if(ans===a){

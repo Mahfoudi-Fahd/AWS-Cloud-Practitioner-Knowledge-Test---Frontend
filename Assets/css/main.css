@@ -301,7 +301,12 @@ nav ul li ul li a {
 }
 
 #file {
+  margin-top: 50px;
   margin-left: 23%;
-  height: 50px;
+  height: 30px;
   width: 50%;
+  background: white;
+}
+#file::-webkit-progress-value {
+  background: #f8b500;
 }/*# sourceMappingURL=main.css.map */

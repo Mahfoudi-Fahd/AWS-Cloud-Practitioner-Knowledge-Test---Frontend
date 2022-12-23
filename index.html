@@ -88,6 +88,8 @@
                 <button type="button" id="op4" class="btn col-md-12" onclick="validate(id);"></button>
                 <button id="next-1"  class="next-1 next">Next</button>
                 <progress  id="file" max="100" value="0"></progress>
+                <!-- <smart-progress-bar value="25" inverted></smart-progress-bar> -->
+
 
             </div>
             
@@ -105,10 +107,30 @@
             </div>
        
         <script src="Assets/JS/main.js"></script>
+
         <script>
+
 
             var i=0;
             var score=0;
+            
+
+        // random questions function 
+        
+        function shuffle(questions) {
+        for (let i = questions.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = questions[i];
+            questions[i] = questions[j];
+            questions[j] = temp;
+        }
+        return questions;
+        }
+             const result = shuffle(questions);
+
+
+
+           
             const {questionText:q1} = questions[i];
             const [op1,op2,op3,op4] = questions[i].options;
             document.getElementById("ques").innerHTML=q1;
@@ -119,7 +141,7 @@
 
 
             function validate(id){  
-                document.querySelector('#file').value += 10;
+            document.querySelector('#file').value += 10;
 
             $('#op1,#op2,#op3,#op4').attr('disabled','disabled');
             const {answer:a} =questions[i];

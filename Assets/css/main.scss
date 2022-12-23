@@ -238,7 +238,7 @@ nav {
 }
 
 #note {
-  margin: 10rem;
+  margin-top: 10rem;
 }
 
 #res {
@@ -263,7 +263,7 @@ nav {
     .bullet {
       height: 28px;
       width: 28px;
-      border: 2px solid #000;
+      border: 2px solid #757575;
       display: inline-block;
       border-radius: 50%;
       position: relative;
@@ -295,8 +295,8 @@ nav {
         bottom: 11px;
         right: -150px;
         height: 3px;
-        width: 150px;
-        background: #262626;
+        width: 148px;
+        background: #757575;
 
         @media (max-width: 600px) {
           width: 0;
@@ -307,6 +307,7 @@ nav {
 
       span {
         position: absolute;
+        bottom: 2%;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -325,8 +326,8 @@ nav {
     .check {
       position: absolute;
       left: 50%;
-      top: 70%;
-      font-size: 15px;
+      top: 73%;
+      font-size: 14px;
       transform: translate(-50%, -50%);
       display: none;
 
@@ -346,6 +347,7 @@ nav {
     &.active {
       color: $link-hover-color;
       transition: 0.2s linear;
+      font-size: 19px;
     }
   }
 }
@@ -361,8 +363,8 @@ nav {
 }
 
 #file {
+margin-left: 23%;
   height: 50px;
-  width: 100%;
-
+  width: 50%;
 }
 

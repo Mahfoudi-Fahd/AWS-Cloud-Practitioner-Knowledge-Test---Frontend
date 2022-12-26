@@ -67,7 +67,7 @@
         </div>
 
         <div class="step">
-            <p>Score</p>
+            <p>Results</p>
             <div class="bullet">
                 <span>3</span>
             </div>
@@ -88,10 +88,16 @@
             <div id="div1" class="container col-md-8 shadow p-3 mb-5 bg-white rounded">
                 <h1 id="ques">Question</h1>
                 <div id="res"></div>
-                <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
-                <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
-                <button type="button" id="op3" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
-                <button type="button" id="op4" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
+                <div id="exp"></div>
+
+                <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12"
+                    onclick="validate(id);"></button>
+                <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12"
+                    onclick="validate(id);"></button>
+                <button type="button" id="op3" class="btn col-md-12 col-sm-12 col-xs-12"
+                    onclick="validate(id);"></button>
+                <button type="button" id="op4" class="btn col-md-12 col-sm-12 col-xs-12"
+                    onclick="validate(id);"></button>
                 <button id="next-1" class="next-1 next">Next</button>
                 <progress class="progress" id="file" max="100" value="0"></progress>
 
@@ -103,7 +109,7 @@
             <div id="page" class="res container col-md-6 shadow p-3 mb-5 bg-white rounded">
                 <h1>All Done !!!</h1>
                 <h6>Your score is <span id="score"></span>/100</h6><br />
-                <p>Click Submit To see the Questions's explication  </p>
+                <p>Click Submit To see the Questions's explication </p>
                 <button id="done" type="button" class="submit btn">Submit</button>
                 <button type="button" class="btn" onclick="restart();">Go Back</button>
             </div>
@@ -113,110 +119,119 @@
                 <p>What is Lorem Ipsum?
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                    Ipsum.</p>
 
 
 
             </div>
-            <script src="Assets/JS/main.js"></script>
-
-            <script>
-
-
-                var i = 0;
-                var score = 0;
-
-
-                // random questions function 
-
-                function shuffle(questions) {
-                    for (let i = questions.length - 1; i > 0; i--) {
-                        let j = Math.floor(Math.random() * (i + 1));
-                        let temp = questions[i];
-                        questions[i] = questions[j];
-                        questions[j] = temp;
-                    }
-                    return questions;
-                }
-                const result = shuffle(questions);
-
-
-
-
-                const { questionText: q1 } = questions[i];
-                const [op1, op2, op3, op4] = questions[i].options;
-                document.getElementById("ques").innerHTML = q1;
-                document.getElementById("op1").innerHTML = op1;
-                document.getElementById("op2").innerHTML = op2;
-                document.getElementById("op3").innerHTML = op3;
-                document.getElementById("op4").innerHTML = op4;
-
-
-
-                function validate(id) {
-
-                    // progressbar
-                    document.querySelector('#file').value += 10;
-
-
-                    // answers
-                    $('#op1,#op2,#op3,#op4').attr('disabled', 'disabled');
-
-                    const { answer: a } = questions[i];
-
-                    var ans = document.getElementById(id).innerHTML;
-                    if (ans === a) {
-                        $("#res").text("Correct !!!");
-                        $("#res").css({ 'color': 'green' });
-                        score += 10;
-
-                    }
-                    else {
-                        $("#res").text("Incorrect");
-                        $("#res").css({ 'color': 'red' });
-
-                    }
-
-                    if (i === questions.length - 1) {
-                        setTimeout(function () {
-                            document.getElementById("next-1").click();
-                            document.getElementById("res").style.display = "none";
-                        }, 1000)
-
-                        $("#score").text(score);
-                    }
-                    else {
-                        i++;
-
-                        setTimeout(function () {
-                            $('#op1,#op2,#op3,#op4').removeAttr('disabled', 'disabled');
-                            $('#res').text("");
-
-                            const { questionText: q1 } = questions[i];
-                            const [op1, op2, op3, op4] = questions[i].options;
-                            document.getElementById("ques").innerHTML = q1;
-                            document.getElementById("op1").innerHTML = op1;
-                            document.getElementById("op2").innerHTML = op2;
-                            document.getElementById("op3").innerHTML = op3;
-                            document.getElementById("op4").innerHTML = op4;
-
-
-                        }, 500
-                        )
-                    }
-                }
-
-                // go to first Page function
-                function restart() {
-                    location.reload();
-                }
-            </script>
-
-
     </main>
+    <script src="Assets/JS/main.js"></script>
+
+    <script>
+
+
+        var i = 0;
+        var score = 0;
+
+
+        // random questions function 
+
+        function shuffle(questions) {
+            for (let i = questions.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let temp = questions[i];
+                questions[i] = questions[j];
+                questions[j] = temp;
+            }
+            return questions;
+        }
+        const result = shuffle(questions);
+
+
+
+
+        const { questionText: q1 } = questions[i];
+        const [op1, op2, op3, op4] = questions[i].options;
+        document.getElementById("ques").innerHTML = q1;
+        document.getElementById("op1").innerHTML = op1;
+        document.getElementById("op2").innerHTML = op2;
+        document.getElementById("op3").innerHTML = op3;
+        document.getElementById("op4").innerHTML = op4;
+
+
+
+        function validate(id) {
+
+            // progressbar
+            document.querySelector('#file').value += 10;
+
+
+            // answers
+            $('#op1,#op2,#op3,#op4').attr('disabled', 'disabled');
+
+            const { answer: a } = questions[i];
+
+            var ans = document.getElementById(id).innerHTML;
+            if (ans === a) {
+                $("#res").text("Correct !!!");
+                $("#res").css({ 'color': 'green' });
+
+                score += 10;
+
+            }
+            else {
+
+                $("#res").text("Incorrect ");
+                $("#exp").text("Correct answer is " + a)
+                $("#res").css({ 'color': 'red' });
+                $("#exp").css({ 'color': 'green' });
+
+
+
+            }
+
+            if (i === questions.length - 1) {
+                setTimeout(function () {
+                    document.getElementById("next-1").click();
+                    document.getElementById("res").style.display = "none";
+                }, 1000)
+
+                $("#score").text(score);
+            }
+            else {
+                i++;
+
+                setTimeout(function () {
+                    $('#op1,#op2,#op3,#op4').removeAttr('disabled', 'disabled');
+                    $('#res').text("");
+                    $('#exp').text("");
+
+                    const { questionText: q1 } = questions[i];
+                    const [op1, op2, op3, op4] = questions[i].options;
+                    document.getElementById("ques").innerHTML = q1;
+                    document.getElementById("op1").innerHTML = op1;
+                    document.getElementById("op2").innerHTML = op2;
+                    document.getElementById("op3").innerHTML = op3;
+                    document.getElementById("op4").innerHTML = op4;
+
+
+                }, 10
+                )
+            }
+        }
+
+        // go to first Page function
+        function restart() {
+            location.reload();
+        }
+    </script>
+
+
     <script src="assets/JS/scripts.js"></script>
 </body>
 

@@ -7,7 +7,7 @@ const questions = [
             "3. Amazon EC2 instances can be launched on demand when needed", 
             "4. Users can permanently run enough instances to handle peak workloads."
         ],
-      answer: "3. Amazon EC2 instances can be launched on demand when needed",
+      answer:"3. Amazon EC2 instances can be launched on demand when needed" ,
     },
     
     {

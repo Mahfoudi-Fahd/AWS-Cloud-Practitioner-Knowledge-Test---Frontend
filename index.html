@@ -88,14 +88,10 @@
             <div id="div1" class="container col-md-8 shadow p-3 mb-5 bg-white rounded">
                 <h1 id="ques">Question</h1>
                 <div id="res"></div>
-                <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12"
-                    onclick="validate(id);"></button>
-                <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12"
-                    onclick="validate(id);"></button>
-                <button type="button" id="op3" class="btn col-md-12 col-sm-12 col-xs-12"
-                    onclick="validate(id);"></button>
-                <button type="button" id="op4" class="btn col-md-12 col-sm-12 col-xs-12"
-                    onclick="validate(id);"></button>
+                <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
+                <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
+                <button type="button" id="op3" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
+                <button type="button" id="op4" class="btn col-md-12 col-sm-12 col-xs-12" onclick="validate(id);"></button>
                 <button id="next-1" class="next-1 next">Next</button>
                 <progress class="progress" id="file" max="100" value="0"></progress>
 
@@ -112,6 +108,19 @@
                 <button type="button" class="btn" onclick="restart();">Go Back</button>
             </div>
 
+            <div id="results" class="res container col-md-6 shadow p-3 mb-5 bg-white rounded">
+
+                <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+
+
+            </div>
             <script src="Assets/JS/main.js"></script>
 
             <script>
@@ -146,9 +155,14 @@
                 document.getElementById("op4").innerHTML = op4;
 
 
+
                 function validate(id) {
+
+                    // progressbar
                     document.querySelector('#file').value += 10;
 
+
+                    // answers
                     $('#op1,#op2,#op3,#op4').attr('disabled', 'disabled');
 
                     const { answer: a } = questions[i];
@@ -195,7 +209,7 @@
                     }
                 }
 
-
+                // go to first Page function
                 function restart() {
                     location.reload();
                 }

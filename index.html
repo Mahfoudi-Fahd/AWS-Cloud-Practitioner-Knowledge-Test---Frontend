@@ -110,25 +110,11 @@
                 <h1>All Done !!!</h1>
                 <h6>Your score is <span id="score"></span>/100</h6><br />
                 <p>Click Submit To see the Questions's explication </p>
-                <button id="done" type="button" class="submit btn">Submit</button>
+                <button id="done" type="button" class="submit btn" onclick="results();">Submit</button>
                 <button type="button" class="btn" onclick="restart();">Go Back</button>
             </div>
 
-            <div id="results" class="res container col-md-6 shadow p-3 mb-5 bg-white rounded">
-
-                <p>What is Lorem Ipsum?
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
-                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
-                    Ipsum.</p>
-
-
-
-            </div>
+            <div id="results" class=""></div>
     </main>
     <script src="Assets/JS/main.js"></script>
 
@@ -185,11 +171,11 @@
 
             }
             else {
+                questions[i]["incorrect"]="true";
+                console.log(questions);
 
                 $("#res").text("Incorrect ");
-                $("#exp").text("Correct answer is " + a)
                 $("#res").css({ 'color': 'red' });
-                $("#exp").css({ 'color': 'green' });
 
 
 
@@ -224,6 +210,29 @@
                 )
             }
         }
+function results(){
+for(let index=0 ; index < questions.length; index++){
+    if(questions[index]["incorrect"])
+document.getElementById("results").innerHTML += 
+`<div id="result" class="resu container col-md-6 shadow p-3 mb-5  rounded">
+        <div class="card-body text-center">
+             <h5> ${questions[index]["questionText"]}</h5>
+            <div class="answerText">
+                ${questions[index]["answer"]}
+                </label>
+            </div>
+            <div class="">
+                ${questions[index]["justification"]}
+                </label>
+            </div>
+        </div>
+        </div>`;
+
+
+}
+
+
+}
 
         // go to first Page function
         function restart() {

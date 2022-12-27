@@ -315,4 +315,14 @@ nav ul li ul li a {
 }
 #file::-webkit-progress-value {
   background: #f8b500;
+}
+
+.answerText {
+  font-size: large;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.resu {
+  background: rgba(93, 235, 152, 0.6);
 }/*# sourceMappingURL=main.css.map */

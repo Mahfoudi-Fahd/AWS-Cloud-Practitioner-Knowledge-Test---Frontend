@@ -113,7 +113,10 @@
                 <button id="done" type="button" class="submit btn" onclick="results();">Submit</button>
                 <button type="button" class="btn" onclick="restart();">Go Back</button>
             </div>
+            <div id="result-head" class="res container col-md-4 shadow p-3 mb-5  rounded">
+                <h3>answers & explications</h3>
 
+            </div>
             <div id="results" class=""></div>
     </main>
     <script src="Assets/JS/main.js"></script>
@@ -164,6 +167,7 @@
 
             var ans = document.getElementById(id).innerHTML;
             if (ans === a) {
+                questions[i]["correct"]="true";
                 $("#res").text("Correct !!!");
                 $("#res").css({ 'color': 'green' });
 
@@ -172,7 +176,6 @@
             }
             else {
                 questions[i]["incorrect"]="true";
-                console.log(questions);
 
                 $("#res").text("Incorrect ");
                 $("#res").css({ 'color': 'red' });
@@ -211,10 +214,27 @@
             }
         }
 function results(){
+    
 for(let index=0 ; index < questions.length; index++){
     if(questions[index]["incorrect"])
 document.getElementById("results").innerHTML += 
-`<div id="result" class="resu container col-md-6 shadow p-3 mb-5  rounded">
+`<div id="result" class="incorrect container col-md-6 shadow p-3 mb-5  rounded">
+        <div class="card-body text-center">
+             <h5> ${questions[index]["questionText"]}</h5>
+            <div class="answerText">
+                ${questions[index]["answer"]}
+                </label>
+            </div>
+            <div class="">
+                ${questions[index]["justification"]}
+                </label>
+            </div>
+        </div>
+        </div>`;
+    
+        if(questions[index]["correct"])
+document.getElementById("results").innerHTML += 
+`<div id="result" class="correct container col-md-6 shadow p-3 mb-5  rounded">
         <div class="card-body text-center">
              <h5> ${questions[index]["questionText"]}</h5>
             <div class="answerText">

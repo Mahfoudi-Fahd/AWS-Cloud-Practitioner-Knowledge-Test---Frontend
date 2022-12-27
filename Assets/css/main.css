@@ -168,7 +168,7 @@ nav ul li ul li a {
   }
 }
 .btn {
-  background: #5deb98 !important;
+  background: rgba(93, 235, 152, 0.7333333333) !important;
   color: #fff;
   margin: 10px;
 }
@@ -323,6 +323,16 @@ nav ul li ul li a {
   margin: 5px;
 }
 
-.resu {
-  background: rgba(93, 235, 152, 0.6);
+.incorrect {
+  background: linear-gradient(45deg, rgba(244, 67, 54, 0.5568627451), transparent);
+}
+
+.correct {
+  background: linear-gradient(45deg, rgba(51, 200, 56, 0.4549019608), transparent);
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-weight: unset !important;
 }/*# sourceMappingURL=main.css.map */

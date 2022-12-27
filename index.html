@@ -67,7 +67,7 @@
         </div>
 
         <div class="step">
-            <p>Score</p>
+            <p>Results</p>
             <div class="bullet">
                 <span>3</span>
             </div>
@@ -88,6 +88,8 @@
             <div id="div1" class="container col-md-8 shadow p-3 mb-5 bg-white rounded">
                 <h1 id="ques">Question</h1>
                 <div id="res"></div>
+                <div id="exp"></div>
+
                 <button type="button" id="op1" class="btn col-md-12 col-sm-12 col-xs-12"
                     onclick="validate(id);"></button>
                 <button type="button" id="op2" class="btn col-md-12 col-sm-12 col-xs-12"
@@ -107,102 +109,158 @@
             <div id="page" class="res container col-md-6 shadow p-3 mb-5 bg-white rounded">
                 <h1>All Done !!!</h1>
                 <h6>Your score is <span id="score"></span>/100</h6><br />
-                <p>Click Submit To see the Questions's explication  </p>
-                <button id="done" type="button" class="submit btn">Submit</button>
+                <p>Click Submit To see the Questions's explication </p>
+                <button id="done" type="button" class="submit btn" onclick="results();">Submit</button>
                 <button type="button" class="btn" onclick="restart();">Go Back</button>
             </div>
+            <div id="result-head" class="res container col-md-4 shadow p-3 mb-5  rounded">
+                <h3>answers & explications</h3>
 
-            <script src="Assets/JS/main.js"></script>
-
-            <script>
-
-
-                var i = 0;
-                var score = 0;
-
-
-                // random questions function 
-
-                function shuffle(questions) {
-                    for (let i = questions.length - 1; i > 0; i--) {
-                        let j = Math.floor(Math.random() * (i + 1));
-                        let temp = questions[i];
-                        questions[i] = questions[j];
-                        questions[j] = temp;
-                    }
-                    return questions;
-                }
-                const result = shuffle(questions);
-
-
-
-
-                const { questionText: q1 } = questions[i];
-                const [op1, op2, op3, op4] = questions[i].options;
-                document.getElementById("ques").innerHTML = q1;
-                document.getElementById("op1").innerHTML = op1;
-                document.getElementById("op2").innerHTML = op2;
-                document.getElementById("op3").innerHTML = op3;
-                document.getElementById("op4").innerHTML = op4;
-
-
-                function validate(id) {
-                    document.querySelector('#file').value += 10;
-
-                    $('#op1,#op2,#op3,#op4').attr('disabled', 'disabled');
-
-                    const { answer: a } = questions[i];
-
-                    var ans = document.getElementById(id).innerHTML;
-                    if (ans === a) {
-                        $("#res").text("Correct !!!");
-                        $("#res").css({ 'color': 'green' });
-                        score += 10;
-
-                    }
-                    else {
-                        $("#res").text("Incorrect");
-                        $("#res").css({ 'color': 'red' });
-
-                    }
-
-                    if (i === questions.length - 1) {
-                        setTimeout(function () {
-                            document.getElementById("next-1").click();
-                            document.getElementById("res").style.display = "none";
-                        }, 1000)
-
-                        $("#score").text(score);
-                    }
-                    else {
-                        i++;
-
-                        setTimeout(function () {
-                            $('#op1,#op2,#op3,#op4').removeAttr('disabled', 'disabled');
-                            $('#res').text("");
-
-                            const { questionText: q1 } = questions[i];
-                            const [op1, op2, op3, op4] = questions[i].options;
-                            document.getElementById("ques").innerHTML = q1;
-                            document.getElementById("op1").innerHTML = op1;
-                            document.getElementById("op2").innerHTML = op2;
-                            document.getElementById("op3").innerHTML = op3;
-                            document.getElementById("op4").innerHTML = op4;
-
-
-                        }, 500
-                        )
-                    }
-                }
-
-
-                function restart() {
-                    location.reload();
-                }
-            </script>
-
-
+            </div>
+            <div id="results" class=""></div>
     </main>
+    <script src="Assets/JS/main.js"></script>
+
+    <script>
+
+
+        var i = 0;
+        var score = 0;
+
+
+        // random questions function 
+
+        function shuffle(questions) {
+            for (let i = questions.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                let temp = questions[i];
+                questions[i] = questions[j];
+                questions[j] = temp;
+            }
+            return questions;
+        }
+        const result = shuffle(questions);
+
+
+
+
+        const { questionText: q1 } = questions[i];
+        const [op1, op2, op3, op4] = questions[i].options;
+        document.getElementById("ques").innerHTML = q1;
+        document.getElementById("op1").innerHTML = op1;
+        document.getElementById("op2").innerHTML = op2;
+        document.getElementById("op3").innerHTML = op3;
+        document.getElementById("op4").innerHTML = op4;
+
+
+
+        function validate(id) {
+
+            // progressbar
+            document.querySelector('#file').value += 10;
+
+
+            // answers
+            $('#op1,#op2,#op3,#op4').attr('disabled', 'disabled');
+
+            const { answer: a } = questions[i];
+
+            var ans = document.getElementById(id).innerHTML;
+            if (ans === a) {
+                questions[i]["correct"]="true";
+                $("#res").text("Correct !!!");
+                $("#res").css({ 'color': 'green' });
+
+                score += 10;
+
+            }
+            else {
+                questions[i]["incorrect"]="true";
+
+                $("#res").text("Incorrect ");
+                $("#res").css({ 'color': 'red' });
+
+
+
+            }
+
+            if (i === questions.length - 1) {
+                setTimeout(function () {
+                    document.getElementById("next-1").click();
+                    document.getElementById("res").style.display = "none";
+                }, 1000)
+
+                $("#score").text(score);
+            }
+            else {
+                i++;
+
+                setTimeout(function () {
+                    $('#op1,#op2,#op3,#op4').removeAttr('disabled', 'disabled');
+                    $('#res').text("");
+                    $('#exp').text("");
+
+                    const { questionText: q1 } = questions[i];
+                    const [op1, op2, op3, op4] = questions[i].options;
+                    document.getElementById("ques").innerHTML = q1;
+                    document.getElementById("op1").innerHTML = op1;
+                    document.getElementById("op2").innerHTML = op2;
+                    document.getElementById("op3").innerHTML = op3;
+                    document.getElementById("op4").innerHTML = op4;
+
+
+                }, 10
+                )
+            }
+        }
+function results(){
+    
+for(let index=0 ; index < questions.length; index++){
+    if(questions[index]["incorrect"])
+document.getElementById("results").innerHTML += 
+`<div id="result" class="incorrect container col-md-6 shadow p-3 mb-5  rounded">
+        <div class="card-body text-center">
+             <h5> ${questions[index]["questionText"]}</h5>
+            <div class="answerText">
+                ${questions[index]["answer"]}
+                </label>
+            </div>
+            <div class="">
+                ${questions[index]["justification"]}
+                </label>
+            </div>
+        </div>
+        </div>`;
+    
+        if(questions[index]["correct"])
+document.getElementById("results").innerHTML += 
+`<div id="result" class="correct container col-md-6 shadow p-3 mb-5  rounded">
+        <div class="card-body text-center">
+             <h5> ${questions[index]["questionText"]}</h5>
+            <div class="answerText">
+                ${questions[index]["answer"]}
+                </label>
+            </div>
+            <div class="">
+                ${questions[index]["justification"]}
+                </label>
+            </div>
+        </div>
+        </div>`;
+
+
+}
+
+
+}
+
+        // go to first Page function
+        function restart() {
+            location.reload();
+        }
+    </script>
+
+
     <script src="assets/JS/scripts.js"></script>
 </body>
 

@@ -218,7 +218,7 @@ nav {
     background-color: $link-hover-color !important;
   }
 
-  background: #5deb98 !important;
+  background: #5deb98bb !important;
   color: $nav-background;
   margin:10px;
 }
@@ -241,10 +241,15 @@ nav {
   margin-top: 10rem;
 }
 
-#res {
+#res{
   font-size: 26px;
   font-weight: bolder;
   margin-left: 45%;
+}
+#exp{
+  font-size: 26px;
+  font-weight: bolder;
+  margin-left: 3%;
 }
 
 
@@ -373,5 +378,20 @@ margin-left: 23%;
   background: $link-hover-color;
  }
 }
+.answerText{
+  font-size: large;
+  font-weight: bold;
+  margin: 5px;
+}
+.incorrect{
+  background: linear-gradient(45deg, #f443368e, transparent);}
+.correct{
+  background: linear-gradient(45deg, #33c83874, transparent);
+}
 
 
+h3{
+  display: flex;
+  justify-content: center;
+  font-weight: unset !important;
+}

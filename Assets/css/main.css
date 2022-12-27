@@ -168,7 +168,7 @@ nav ul li ul li a {
   }
 }
 .btn {
-  background: #5deb98 !important;
+  background: rgba(93, 235, 152, 0.7333333333) !important;
   color: #fff;
   margin: 10px;
 }
@@ -196,6 +196,12 @@ nav ul li ul li a {
   font-size: 26px;
   font-weight: bolder;
   margin-left: 45%;
+}
+
+#exp {
+  font-size: 26px;
+  font-weight: bolder;
+  margin-left: 3%;
 }
 
 .progress-bar {
@@ -309,4 +315,24 @@ nav ul li ul li a {
 }
 #file::-webkit-progress-value {
   background: #f8b500;
+}
+
+.answerText {
+  font-size: large;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.incorrect {
+  background: linear-gradient(45deg, rgba(244, 67, 54, 0.5568627451), transparent);
+}
+
+.correct {
+  background: linear-gradient(45deg, rgba(51, 200, 56, 0.4549019608), transparent);
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  font-weight: unset !important;
 }/*# sourceMappingURL=main.css.map */

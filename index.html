@@ -218,7 +218,7 @@ function results(){
 for(let index=0 ; index < questions.length; index++){
     if(questions[index]["incorrect"])
 document.getElementById("results").innerHTML += 
-`<div id="result" class="incorrect container col-md-6 shadow p-3 mb-5  rounded">
+`<div id="result" class="incorrect container col-md-8 shadow p-3 mb-5  rounded">
         <div class="card-body text-center">
              <h5> ${questions[index]["questionText"]}</h5>
             <div class="answerText">
@@ -234,7 +234,7 @@ document.getElementById("results").innerHTML +=
     
         if(questions[index]["correct"])
 document.getElementById("results").innerHTML += 
-`<div id="result" class="correct container col-md-6 shadow p-3 mb-5  rounded">
+`<div id="result" class="correct container col-md-8 shadow p-3 mb-5  rounded">
         <div class="card-body text-center">
              <h5> ${questions[index]["questionText"]}</h5>
             <div class="answerText">
